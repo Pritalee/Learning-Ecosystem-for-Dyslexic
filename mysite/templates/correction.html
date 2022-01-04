@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4><center>Upload an image for correction</center></h4>
+  <div style="margin-top:5%;" id = "M" class= "M">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image">
+    <button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;"><i class="material-icons">add</i></button>
+  </form>
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+  {% if content %}
+  
+  <span id="spanelement" >
+  <h5>CONTENT:</h5>
+  <p id="spanelement1">{{content|linebreaks}}</p>
+</span>
+
+  
+  {% endif %}
+  
+  <p>{{word}}</p>
+  
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+            {% block content %}
+            <h4> Enter a sentence to generate a scene</h4>
+            <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter the text to view scene" name="scene">
+  <button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;margin-top:5%;"><i class="material-icons">find_in_page</i></button>
+  </form>
+
+
+   {% endblock %}

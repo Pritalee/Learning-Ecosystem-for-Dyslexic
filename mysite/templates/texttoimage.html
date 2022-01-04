@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+            {% block content %}
+            <h4><center>See what it looks like</center></h4>
+            <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" placeholder="Search for something!" name="texttoimage">
+  <button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;margin-top:5%;"><i class="material-icons">find_in_page</i></button>
+  </form>
+
+
+  <p style="margin-top:3%;">Image:</p>
+  <img src="{{ image }}">
+
+   {% endblock %}

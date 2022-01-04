@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4><center>Hear it out loud!</center></h4>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!--<input type="text" name="mytext">-->
+    <input type="file" name="mytext">
+
+    <select name="choice" id="choice">
+<option value="50"selected>50</option>
+<option value="120"  >120</option>
+<option value="70"  >70</option>
+<option value="80"  >80</option>
+
+</select>
+<div style="float:center;margin-top:3%;">
+    <a href="{% url 'stop' %}"><i class="material-icons">pause</i></a>
+    <a href="{% url 'stop' %}"><i class="material-icons">stop</i></a>
+</div>
+    <button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;"><i class="material-icons">add</i></button>
+  </form>
+  {% if s %}
+  {{s}}
+
+
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+            {% block content %}
+            <h4> <center>Look up for this word</center> </h4>
+            <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter the text to find meaning" name="dictionary1">
+    <button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;margin-top:5%;"><i class="material-icons">search</i></button>
+  </form>
+  <h4 style="margin-top:3%;">Meaning of {{name}}</h4>
+<p><b>Noun:</b></p>
+<ol>
+  {% for i in mean.Noun %}
+
+  
+    <li>{{ i }}</li>
+   
+   {% endfor %} 
+ </ol>
+ <p><b>Verb:</b></p>
+ <ol>
+    
+    {% for j in mean.Verb %}
+
+  
+    <li>{{ j }}</li>
+   
+   {% endfor %} 
+ </ol>
+    <!--<p><b>Sentences:</b></p>
+    <ol>
+    {%for element in usage.items%}
+    {%for value in element.items %}
+    
+      <li>{{value}}</li>
+
+{% endfor %}
+{% endfor %}-->
+</ol>
+
+   {% endblock %}

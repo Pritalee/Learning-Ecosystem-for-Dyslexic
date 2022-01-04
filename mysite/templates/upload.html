@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4><center>Upload a <i class="material-icons" style="font-size:40px;">picture_as_pdf</i> to read the content!</center></h4>
+  <div style="margin-top:5%;" id = "M" class= "M">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document">
+    
+ 
+
+   
+    <select name="choice" onchange="color(this.value)">
+      <option value = "" disabled selected>Select font color</option>
+<option value="blue">blue</option>
+<option value="green" >green</option>
+<option value="red">red</option>
+<option value="orange">orange</option>
+<option value="pink" >pink</option>
+<option value="brown" >brown</option>
+<option value="yellow" >yellow</option>
+<!--<option value="lightblue">light blue</option>-->
+<!--<option value="black" >black</option>-->
+</select>
+
+
+
+<select name="choice1" onchange="bgcolor(this.value)">
+  <option value = "" disabled selected>Select background color</option>
+<option value="white">white</option>
+<option value="lightblue">lightblue</option>
+<!--<option value="blue">blue</option>-->
+<option value="green" >green</option>
+<option value="yellow">yellow</option>
+<option value="red" >red</option>
+<option value="orange">orange</option>
+<option value="pink" >pink</option>
+<option value="brown" >brown</option>
+<option value="black" >black</option>
+</select>
+
+
+<select name="choice1" onchange="$('#spanelement1').css('font-size', event.target.value + 'px')">
+  <option value = "" disabled selected>Select font size</option>
+<option value="12" >12</option>
+<option value="14" >14</option>
+<option value="16">16</option>
+<option value="18"> 18</option>
+<option value="20" >20</option>
+<option value="22" >22</option>
+<option value="26" >26</option>
+<option value="28" >28</option>
+<option value="30" >30</option>
+<option value="38" >38</option>
+
+</select>
+<button type="submit" class="btn-floating btn-large waves-effect waves-light" style="background-color:#9575cd; float:right;"><i class="material-icons">add</i></button>
+  </form>
+</div>
+ <div id="font">   
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+  {% if content %}
+  <span id="spanelement" >
+  <h5>CONTENT:</h5>
+  <p id="spanelement1">{{content}}</p>
+</span>
+</div>
+  
+
+{% endif %}
+
+
+{% endblock %}
+
